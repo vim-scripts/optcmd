@@ -1,0 +1,5 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=5276
+
+Optcmd is simple plugin, that allow you to call confirm() function for your own list of commands (btw, you can have as many lists as you need). After choosing command it will be processed depend on current prefix parameter.
+
+You can also find it on https://github.com/sergio-ivanuzzo/optcmd

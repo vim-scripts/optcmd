@@ -1,0 +1,79 @@
+*optcmd.txt*                Plugin allow to select from choice dialog which command to process
+
+
+
+                                     =OPTCMD MANUAL=
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+CONTENTS                                                                      *optcmdContents*
+
+    1. Intro......................................................|optcmdIntro|
+    2. Installation...............................................|optcmdInstallation|
+    3. Quick start................................................|optcmdQuickStart|
+    4. About......................................................|optcmdAbout|
+    5. License....................................................|optcmdLicense|
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1. Intro                                                                         *optcmdIntro*
+
+Optcmd is simple plugin, that allow you to call confirm() function 
+for your own list of commands (btw, you can have as many lists as you need).
+After choosing command it will be processed depend on current prefix parameter.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2. Installation                                                           *optcmdInstallation*
+
+Install this plugin using vundle (https://github.com/VundleVim/Vundle.vim).
+
+Just add to your .vimrc next lines:
+Plugin 'sergio-ivanuzzo/optcmd'
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+3. Quick start                                                              *optcmdQuickStart*
+
+To work with this plugin, do next:
+
+    1) add to your .vimrc list of dictionaries like below:
+
+    let commands = [
+        \{'prefix': 'console', 'command': 'ls -al > file.txt', 'index': '1', 'label': 'ls'},
+        \{'prefix': 'function', 'command': 'somePluginFunction()', 'index': '2'},
+        \{'prefix': 'command', 'command': 'vim_native_command', index: '3'}
+        \]
+
+    2) add message for confirm() :
+
+    let message = "Choose command:"
+
+    2) add keymap for call optcmd#ChooseCommand(message, commands) :
+
+        nmap <C-k> :call optcmd#ChooseCommand(message, commands) <CR>
+
+        you can have as many keymaps for this as you want
+
+    Commands prefixes:
+        a) 'console' run command in external shell
+        b) 'function' run command as vim function (via :call)
+        c) 'command' run command as simple vim command
+
+    Index option use as shortcut for confirm() (:help confirm() for more details).
+    This option can bi omitted (so, as shortcut will be used first letter of command)
+
+    Label option use for output as confirm() choice. Can be omitted.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 4. About                                                                        *optcmdAbout*
+
+ I hope, this plugin will be useful for you! If you have any questions, propositions etc,
+ please, contact me <sergio.ivanuzzo at gmail dot com>
+
+ I will be glad if you help me to improve this plugin!
+
+ http://github.com/sergio-ivanuzzo/optcmd
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+5. License                                                                     *optcmdLicense*
+
+Currently GNU GPL.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

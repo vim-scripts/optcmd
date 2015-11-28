@@ -28,6 +28,9 @@ Install this plugin using vundle (https://github.com/VundleVim/Vundle.vim).
 Just add to your .vimrc next lines:
 Plugin 'sergio-ivanuzzo/optcmd'
 
+Then run:
+vim +PluginInstall +qall
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 3. Quick start                                                              *optcmdQuickStart*
 
@@ -38,7 +41,7 @@ To work with this plugin, do next:
     let commands = [
         \{'prefix': 'console', 'command': 'ls -al > file.txt', 'index': '1', 'label': 'ls'},
         \{'prefix': 'function', 'command': 'somePluginFunction()', 'index': '2'},
-        \{'prefix': 'command', 'command': 'vim_native_command', index: '3'}
+        \{'prefix': 'command', 'command': 'vim_native_command', 'label': 'some vim cmd'}
         \]
 
     2) add message for confirm() :
@@ -70,6 +73,8 @@ To work with this plugin, do next:
  I will be glad if you help me to improve this plugin!
 
  http://github.com/sergio-ivanuzzo/optcmd
+ OR
+ http://www.vim.org/scripts/script.php?script_id=5276
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 5. License                                                                     *optcmdLicense*

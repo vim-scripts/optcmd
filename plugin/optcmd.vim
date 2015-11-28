@@ -2,7 +2,7 @@
 " Description: vim global plugin that provides binding of multiple commands on one key. 
 "              How command will be processing depends on command prefix.
 " Author:      Sergio Ivanuzzo <sergio.ivanuzzo at gmail dot com>
-" Version:     1.0.0
+" Version:     1.0.1
 " License:     GNU GPL
 
 if exists('g:loaded_optcmd')
@@ -13,9 +13,13 @@ let g:loaded_optcmd = 1
 
 function optcmd#ChooseCommand(message, commands)
     let commands = s:ConvertCommands(a:commands)
-    let choice   = confirm(a:message, commands)
+    let choice   = confirm(a:message, commands, 0)
 
-    call s:ProcessCommand(choice-1, a:commands)
+    if choice == 0
+        return
+    else
+        call s:ProcessCommand(choice-1, a:commands)
+    endif
 
 endfunction
 

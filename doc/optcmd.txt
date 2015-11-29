@@ -39,9 +39,9 @@ To work with this plugin, do next:
     1) add to your .vimrc list of dictionaries like below:
 
     let commands = [
-        \{'prefix': 'console', 'command': 'ls -al > file.txt', 'index': '1', 'label': 'ls'},
-        \{'prefix': 'function', 'command': 'somePluginFunction()', 'index': '2'},
-        \{'prefix': 'command', 'command': 'vim_native_command', 'label': 'some vim cmd'}
+        \{'prefix': 'shell', 'command': 'ls -al > file.txt', 'index': '1', 'label': 'ls'},
+        \{'prefix': 'func', 'command': 'somePluginFunction()', 'index': '2'},
+        \{'prefix': 'cmd', 'command': 'vim_native_command', 'label': 'some vim cmd'}
         \]
 
     2) add message for confirm() :
@@ -55,9 +55,9 @@ To work with this plugin, do next:
         you can have as many keymaps for this as you want
 
     Commands prefixes:
-        a) 'console' run command in external shell
-        b) 'function' run command as vim function (via :call)
-        c) 'command' run command as simple vim command
+        a) 'shell' run command in external shell
+        b) 'func' run command as vim function (via :call)
+        c) 'cmd' run command as simple vim command
 
     Index option use as shortcut for confirm() (:help confirm() for more details).
     This option can bi omitted (so, as shortcut will be used first letter of command)

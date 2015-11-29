@@ -2,7 +2,7 @@
 " Description: vim global plugin that provides binding of multiple commands on one key. 
 "              How command will be processing depends on command prefix.
 " Author:      Sergio Ivanuzzo <sergio.ivanuzzo at gmail dot com>
-" Version:     1.0.1
+" Version:     1.0.2
 " License:     GNU GPL
 
 if exists('g:loaded_optcmd')
@@ -58,15 +58,18 @@ function! s:ProcessCommand(choice, commands)
     let c        = cmd['command']
     let p        = cmd['prefix']
 
-    if p == "console"
+    if     p == "shell"
         " run command from shell
         execute '!' . c
-    elseif p == "function"
+
+    elseif p == "func"
         " run command via call
-        execute 'call' . c
-    elseif p == "command"
+        execute 'call ' . c
+
+    elseif p == "cmd"
         " run command as native vim function
         execute '' . c
+
     endif
 
 endfunction
